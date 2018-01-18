@@ -3,9 +3,11 @@
 <view class="body-user-info-head" >
   <image src="{{config.indexbgurl}}" class="body-user-info-bg"></image>
   <view class="body-user-info" >
-    <view class="userinfo">
+    <view class="body-userinfo">
       <block wx:if="{{hasUserInfo}}">
-        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <view class="userinfo-avatar-bg">
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        </view>
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       </block>
     </view>
@@ -21,11 +23,12 @@
   <scroll-view scroll-y style="height: 500rpx" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" >
     <black wx:for="{{likes}}">
       <navigator  url="../likes/likes?gid={{item.gid}}&opengid={{item.usergroups.openGId}}" >
-
           <view class="like-new-list">
             <view class="like-new-list-include">
               <view class="like-new-icon">
-                <image wx:for="{{item.selfuid}}" wx:for-item="name"  class="like-new-icon-min" src="{{name.wxuid.avatarUrl}}"></image>
+                <block wx:for="{{item.selfuid}}" wx:for-item="imgname">
+                  <image class="like-new-icon-min" src="{{imgname.wxuid.avatarUrl}}"></image>
+                </block>
               </view>
               <view class="like-new-content">
 

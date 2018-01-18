@@ -58,8 +58,7 @@ Page {
 .body-user-info-head{
   position: relative;
   width: 100%;
-  height: 120px;
-  background: green;
+  height: 300rpx;
 }
 .body-user-info-bg{
   position: absolute;
@@ -67,7 +66,7 @@ Page {
   top: 0;
   background:#F76F63;
   width: 100%;
-  height: 120px;
+  height: 300rpx;
 }
 
 .body-user-info{
@@ -103,37 +102,45 @@ Page {
   width: 90%;
   position: absolute;
   bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .body-to-search{
   border-radius:20px;
-  width: 120px;
+  width: 260rpx;
   font-size: 16px;
-  line-height:36px;
-  height: 36px;
+  line-height:80rpx;
+  height: 80rpx;
   background: #F76F63;
   color:#fff;
   border: none;
-  margin: 0 auto;
 
 }
-.userinfo {
+.body-userinfo {
   display: flex;
-  position: relative;
   flex-direction: column;
-  align-items: center;
+  align-items: center; 
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 40rpx;
+.userinfo-avatar-bg{
+  width: 138rpx;
+  height: 138rpx;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+  padding: 8rpx;
+  background: #fff;
   border-radius: 50%;
+}
+.userinfo-avatar {
+  border-radius: 50%;
+  width: 138rpx;
+  height: 138rpx;
 }
 
 .userinfo-nickname {
   color:#fff;
-  font-size:13px;
+  font-size:16px;
 }
 
 
@@ -158,7 +165,6 @@ Page {
   background: black;
   background: #fff;
   align-items:center;
-
 }
 
 .like-new-icon{
@@ -170,15 +176,18 @@ Page {
   align-items: center;
   flex-wrap: wrap;
   border-radius:20rpx;
+  overflow:hidden;
 }
 
 .like-new-icon-min{
-    width: 50rpx;
-    height: 50rpx;
+    width: 55rpx;
+    height: 55rpx;
+    flex-grow: 0;
 }
 .like-new-icon-max{
     width: 110rpx;
     height: 110rpx;
+    border-radius:20rpx;
 }
 .like-new-content{
   flex-wrap: nowrap;

@@ -78,6 +78,8 @@
     </scroll-view>
     <view class="body-foolter">
       <button class="body-to-search"  open-type="share" >分享到群里</button>
+      <button class="body-to-search-old" bindtap="toindex" >我参加过的群</button>
+      <text class="body-to-search-description">等目标头像出现在上面,你就可以点暗恋了</text>
     </view>
   </view>
 </view>

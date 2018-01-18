@@ -133,9 +133,9 @@ Page({
   onShareAppMessage: function () {
     var that = this;
     return {
-      title: '分享给你喜欢的群',
+      title: '说不定你喜欢的人，也喜欢你呢？相互暗恋会收到匹配私信。',
       path: '/pages/index/index',
-      imageUrl:"/imgs/icon/search.png",
+      imageUrl:"../../imgs/icon/search.png",
       success: function ( res ) {
         util.share(res);
       },
@@ -217,5 +217,10 @@ Page({
         //console.log(result.like)
       });
     }
+  },
+  toindex:(e)=>{
+    wx.redirectTo({
+      url:"../index/index"
+    });
   }
 })
