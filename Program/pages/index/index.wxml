@@ -1,18 +1,22 @@
 <!--index.wxml-->
 <include src="../../templates/header" />
-<view class="body-user-info">
-  <view class="userinfo">
-    <block wx:if="{{hasUserInfo}}">
-      <image  bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="body-user-info-head" >
+  <image src="{{config.indexbgurl}}" class="body-user-info-bg"></image>
+  <view class="body-user-info" >
+    <view class="userinfo">
+      <block wx:if="{{hasUserInfo}}">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
   </view>
 </view>
+
 <view class="body">
   <view class="body-header"><text class="body-header-text">参与的群暗恋</text></view>
   <view class="body-container">
   <view wx:if="{{likes.length == 0}}">
-    <image src='../../imgs/index/start.jpg' class="body-start"></image>
+    <image src="{{config.welecom}}" class="body-start"></image>
   </view>
   <scroll-view scroll-y style="height: 500rpx" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" >
     <black wx:for="{{likes}}">

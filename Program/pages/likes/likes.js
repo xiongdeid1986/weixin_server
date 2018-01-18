@@ -154,6 +154,7 @@ Page({
     gender=e.currentTarget.dataset.gender,
     avatarurl=e.currentTarget.dataset.avatarurl,
     index=e.currentTarget.dataset.index
+    console.log(e)
     if (likestatus == 0){
       var showStatus = !that.data.showStatus
       var status = {

@@ -1,7 +1,8 @@
 <!--头部模板-->
 <view class="header">
+  <image src="../../imgs/icon/info.png" class="header-icon"></image>
   <text class="header-title">你暗恋的人可能在{{globalData.name}}{{config.name}}找对象--></text>
   <navigator url="../web/web">
-    <button type="button" class="header-to-view"  bindtap="toviewurl">去看看</button>
+    <text class="header-to-view">去看看</text>
   </navigator>
 </view>

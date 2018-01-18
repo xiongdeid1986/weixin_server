@@ -1,6 +1,4 @@
 <!--index.wxml-->
-
-
 <include src="../../templates/header" />
 <block wx:if="{{showStatus}}">
 <view class="start-like-bg">
@@ -31,14 +29,13 @@
   </view>
 </view>
 </block>
-<view class="body-user-info">
-  <view class="userinfo">
-    <image src="../../imgs/index/header.jpg" class="likes-header-bg"></image>
+<view class="body-user-info-like">
+  <image src="{{config.likebgurl}}" class="likes-header-bg"></image>
+  <view class="likes-userinfo">
     <view class="likes-header-texts">
-
       <open-data class="likes-header-text-title" type="groupName" open-gid="{{opengid}}" />
       <text class="likes-header-text-subtitle">暗恋榜单</text>
-      <text class="likes-header-text-description">只有互相暗恋，我们才会通知双方，不在群内公开</text>
+      <text class="likes-header-text-description">只有互相暗恋，才会通知双方，不在群内公开</text>
     </view>
   </view>
 </view>
@@ -61,15 +58,15 @@
             </view>
             <view class="like-new-content-button">
             <block wx:if="{{item.islike == 2}}">
-              <text class="like-new-content-button-success">互相暗恋</text>
+              <text class="like-new-content-button-success like-new-like-button-public">互相暗恋</text>
             </block>
             <block wx:if="{{item.islike == 1}}">
-              <text  bindtap="likeshe" class="like-new-content-button-already">已暗恋</text>
+              <text  bindtap="likeshe" class="like-new-content-button-already like-new-like-button-public">已暗恋</text>
             </block>
             <block wx:if="{{item.islike == 0}}">
-              <view data-index="{{index}}" data-nickname="{{item.weixinuser.nickName}}" data-avatarurl="{{item.weixinuser.avatarUrl}}" data-gender="{{item.weixinuser.gender}}" data-toid="{{item.uid}}" data-uid="{{uid}}" data-likestatus="{{item.islike}}" bindtap="likeshe" class="like-new-content-button-primary" >
-                <icon type="search" size="12" color="white" />
-                <text> 暗恋</text>
+              <view class="like-new-content-button-primary like-new-like-button-public"  data-index="{{index}}" data-nickname="{{item.weixinuser.nickName}}" data-avatarurl="{{item.weixinuser.avatarUrl}}" data-gender="{{item.weixinuser.gender}}" data-toid="{{item.uid}}" data-uid="{{uid}}" data-likestatus="{{item.islike}}" bindtap="likeshe" >
+                <image class="like-new-content-like-icon" src="../../imgs/icon/like.png"></image>
+                <text class="like-new-content-like-text"> 暗恋</text>
               </view>
             </block>
             </view>
