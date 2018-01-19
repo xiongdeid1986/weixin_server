@@ -32,7 +32,14 @@ class WeixinGroup extends BaseModel
 
         //$groups = self::with(["usergroups.users"])
         $groups = self::with(["usergroups.users"])
-            ->with(["selfuid.wxuid"])
+            //->with(["selfuid.wxuid"])
+            ->with(["selfuid"=>function($Q){
+                $Q->with([
+                    "wxuid" => function($Q2){
+                        $Q2->limit(0,9);
+                    }
+                ]);
+            }])
             ->where("uid","=",$uid)
             ->select();
         $groups = array_reverse($groups);

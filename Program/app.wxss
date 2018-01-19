@@ -179,10 +179,29 @@ Page {
   overflow:hidden;
 }
 
-.like-new-icon-min{
-    width: 55rpx;
-    height: 55rpx;
+.like-new-icon-min-4{
+    width: 50rpx;
+    height: 50rpx;
     flex-grow: 0;
+    border-radius:5rpx;
+    
+}
+.like-new-icon-min-4-0,.like-new-icon-min-4-1
+{
+  margin-bottom: 11rpx;
+}
+.like-new-icon-min-9
+{
+    width: 33rpx;
+    height: 33rpx;
+    flex-grow: 0;
+    border-radius:5rpx;
+}
+.like-new-icon-min-9-0,.like-new-icon-min-9-1,
+.like-new-icon-min-9-2,.like-new-icon-min-9-3,
+.like-new-icon-min-9-4,.like-new-icon-min-9-5
+{
+  margin-bottom: 6rpx;
 }
 .like-new-icon-max{
     width: 110rpx;

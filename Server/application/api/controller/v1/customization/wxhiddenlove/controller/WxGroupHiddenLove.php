@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  用户定制的微信群暗恋小程序
+ * 用户定制的微信群暗恋小程序
  * 本控制器包含该游戏的全部方法
  * 制作时间  2018-1-13
  * 贵州动点世纪科技有限公司
@@ -38,9 +38,10 @@ class WxGroupHiddenLove
         //返回1 则只有我喜欢对方
         $result = ["like" => $Like];
         if($Like == 2){
-            //一旦结果是双方互相暗恋的. 这里小程序要发通知告知双方 .
-            $toUser = (new UserWeixins())->where("id","=",$toid)->find();
-            $MyUser = (new UserWeixins())->where("id","=",$uid)->find();
+            $UserWeixinsModel = new UserWeixins();
+            // 一旦结果是双方互相暗恋的. 这里小程序要发通知告知双方 .
+            $toUser = $UserWeixinsModel->where("id","=",$toid)->find();
+            $MyUser = $UserWeixinsModel->where("id","=",$uid)->find();
             $messageTo = WeixinMessageTemplate::sendMessageLike($toUser,$session_key,$formId);
             $result["messageTo"] = $messageTo;
             $messageMy = WeixinMessageTemplate::sendMessageLike($MyUser,$session_key,$formId);
@@ -68,7 +69,9 @@ class WxGroupHiddenLove
         $uid =  $uid ? $uid : input("uid");
         $groups = WeixinGroup::getGroups($uid );
         foreach($groups as $k => $v){
-            $groups[$k]["text"] = "已经有".count($v["selfuid"])."人参与";
+            $c = count($v["selfuid"]);
+            $groups[$k]["text"] = "已经有".$c."人参与";
+            $groups[$k]["c"] = $c;
             $allLikeMe = CustomizationWeixinGroupHiddenLike::countLikeMyAll($uid,$v["gid"]);
             if($allLikeMe > 0){
                 $groups[$k]["text"].=", " .$allLikeMe. "人暗恋你";
