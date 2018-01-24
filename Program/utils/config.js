@@ -1,6 +1,4 @@
-const baseUrl = "https://www.ddweb.com.cn/"
-
-//const baseUrl = "http://www.ddweb.com/public/";
+const baseUrl = "https://qun3.mryangping.com/"
 
 const apiVersion = baseUrl + "api/v1/";
 const UserWeixinToken = apiVersion+"UserWeixinToken/";

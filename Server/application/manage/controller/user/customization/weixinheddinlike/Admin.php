@@ -37,7 +37,6 @@ class Admin extends BaseController
             $data["count"]["allgroup"] =count($allGroup);
             $allMatch = Service::allMatch($u_id);
             $data["count"]["allmatch"] = count($allMatch);
-            $data["config"] = Service::getCoinfig($u_id);
             $data["alluser"] = $allUser ;
             $this->data = $data;
         }
@@ -52,9 +51,34 @@ class Admin extends BaseController
             if(request()->isPost()){
                 $arr["to_url"] = input("to_url");
                 $arr["name"] = input("name");
+                $arr["welecom"] = input("welecom");
+                $arr["indexbgurl"] = input("indexbgurl");
+                $arr["likebgurl"] = input("likebgurl");
                 Service::setCoinfig($this->u_id,$arr);
                 $this->redirect("/manage/u/c/weixinheddinlike/admin/config");
             }
+            $this->data["config"] = Service::getCoinfig($this->u_id);
+            $this->assign("web",$this->data);
+            return $this->fetch();
+        }
+    }
+
+    public function wxconfig(){
+        $username = session("user");
+        if(empty($username)){
+            $this->redirect("/manage/u/c/weixinheddinlike/admin/login");
+        }else{
+            if(request()->isPost()){
+                $arr["u_id"] = $this->u_id;
+                $arr["app_id"] = input("app_id");
+                $arr["app_secret"] = input("app_secret");
+                $arr["token"] = input("token");
+                $arr["encoding_aes_key"] = input("encoding_aes_key");
+                Service::setWxCoinfig($this->u_id,$arr);
+                $this->redirect("/manage/u/c/weixinheddinlike/admin/wxconfig");
+            }
+
+            $this->data["config"] = Service::getWxCoinfig($this->u_id);
             $this->assign("web",$this->data);
             return $this->fetch();
         }
@@ -69,6 +93,7 @@ class Admin extends BaseController
                 $arr["pwd"] = input("pwd");
                 Service::setCoinfig($this->u_id,$arr);
             }
+            $this->data["config"] = Service::getCoinfig($this->u_id);
             $this->assign("web",$this->data);
             return $this->fetch();
         }

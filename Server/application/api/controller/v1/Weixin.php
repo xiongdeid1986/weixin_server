@@ -29,6 +29,9 @@ class Weixin extends BaseController
     public $encodingAESKey;
 
     public function _initialize(){
+
+        $autoload = VENDOR_PATH."gaoming13".DS."wechat-php-sdk".DS."autoload.php";
+        require($autoload);
         
         $u_id = input("u_id");
         if(!$u_id){
@@ -60,6 +63,9 @@ class Weixin extends BaseController
             'token' =>     $this->token,
             'encodingAESKey' =>    $this->encodingAESKey //可选
         ));
+
+
+
         // api模块 - 包含各种系统主动发起的功能
         $this->api = new \Gaoming13\WechatPhpSdk\Api(
             array(

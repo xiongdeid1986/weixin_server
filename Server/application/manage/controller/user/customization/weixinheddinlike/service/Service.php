@@ -51,5 +51,21 @@ class Service
     }
 
 
+    public static function getWxCoinfig($uid){
+        $Coinfig = Db::name("clients_weixin")->where("u_id","=",$uid)->find();
+        return  $Coinfig;
+    }
+    public static function setWxCoinfig($uid,$config){
+        $c = self::getWxCoinfig($uid);
+        $db = Db::name("clients_weixin");
+        if( empty($c) )
+        {
+            $update = $db->save($config);
+        }else{
+            $update = $db->where("u_id","=",$uid)->update($config);
+        }
+        return  $update;
+    }
+
 
 }
